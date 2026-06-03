@@ -125,7 +125,7 @@ function centerText(text: string, width: number): string {
 function formatCliBannerArtLines(options: BannerOptions): string[] {
   const width = visibleWidth(LOBSTER_ASCII_BODY[0] ?? "");
   const emojiOptions = resolveEmojiOptions(options);
-  const title = supportsDecorativeEmoji(emojiOptions) ? "🦞 OPENCLAW 🦞" : "OPENCLAW";
+  const title = supportsDecorativeEmoji(emojiOptions) ? "☯️ DAOCORE ☯️" : "DAOCORE";
   return [...LOBSTER_ASCII_BODY, centerText(title, width), " "];
 }
 
