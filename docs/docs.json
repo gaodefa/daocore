@@ -19,6 +19,8 @@
     }
   },
   "favicon": "/assets/pixel-lobster.svg",
+  "customCSS": ["/custom/preloader.css"],
+  "customJS": ["/custom/preloader.js"],
   "colors": {
     "primary": "#FF5A36",
     "dark": "#FF5A36",

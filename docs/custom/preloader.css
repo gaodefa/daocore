@@ -1,0 +1,5 @@
+/* Preloader: dark bg before JS overlay takes over */
+html { background: #0a0808 !important; }
+
+/* After overlay removal, restore normal bg so Mintlify theme shows */
+html.loaded { background: transparent !important; }
