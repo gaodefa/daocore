@@ -71,8 +71,8 @@ export function formatCliBannerLine(version: string, options: BannerOptions = {}
     emojiOptions,
   );
   const rich = options.richTty ?? isRich();
-  const title = decorativePrefix("🦞", "OpenClaw", emojiOptions);
-  const prefix = decorativeEmoji("🦞", emojiOptions);
+  const title = decorativePrefix("☯️", "DaoCore", emojiOptions);
+  const prefix = decorativeEmoji("☯️", emojiOptions);
   const indent = prefix ? `${prefix} ` : "";
   const columns = options.columns ?? process.stdout.columns ?? 120;
   const plainBaseLine = `${title} ${version} (${commitLabel})`;
@@ -150,7 +150,7 @@ export function formatCliBannerArt(options: BannerOptions = {}): string {
   };
 
   const emojiOptions = resolveEmojiOptions(options);
-  const icon = decorativeEmoji("🦞", emojiOptions);
+  const icon = decorativeEmoji("☯️", emojiOptions);
   const colored = lines.map((line) => {
     if (line.includes("OPENCLAW")) {
       if (!icon) {

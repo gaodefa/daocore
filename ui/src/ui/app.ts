@@ -1417,6 +1417,6 @@ export class OpenClawApp extends LitElement {
   }
 }
 
-if (!customElements.get("openclaw-app")) {
-  customElements.define("openclaw-app", OpenClawApp);
+if (!customElements.get("daocore-app")) {
+  customElements.define("daocore-app", OpenClawApp);
 }

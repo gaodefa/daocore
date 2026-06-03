@@ -1,4 +1,4 @@
-# OpenClaw Installer for Windows
+# DaoCore Installer for Windows
 # Usage: powershell -c "irm https://openclaw.ai/install.ps1 | iex"
 #        powershell -c "& ([scriptblock]::Create((irm https://openclaw.ai/install.ps1))) -Tag beta -NoOnboard -DryRun"
 
@@ -101,11 +101,11 @@ function Complete-Install {
         exit $script:InstallExitCode
     }
 
-    throw "OpenClaw installation failed with exit code $($script:InstallExitCode)."
+    throw "DaoCore installation failed with exit code $($script:InstallExitCode)."
 }
 
 Write-Host ""
-Write-Host "  OpenClaw Installer" -ForegroundColor Cyan
+Write-Host "  DaoCore Installer" -ForegroundColor Cyan
 Write-Host ""
 
 # Check if running in PowerShell
@@ -180,7 +180,7 @@ function Get-WindowsNodeArchitecture {
     return "x64"
 }
 
-function Get-OpenClawDepsRoot {
+function Get-DaoCoreDepsRoot {
     $localAppData = $env:LOCALAPPDATA
     if ([string]::IsNullOrWhiteSpace($localAppData)) {
         $localAppData = [Environment]::GetFolderPath("LocalApplicationData")
@@ -188,11 +188,11 @@ function Get-OpenClawDepsRoot {
     if ([string]::IsNullOrWhiteSpace($localAppData)) {
         $localAppData = Join-Path ([Environment]::GetFolderPath("UserProfile")) "AppData\Local"
     }
-    return (Join-Path $localAppData "OpenClaw\deps")
+    return (Join-Path $localAppData "DaoCore\deps")
 }
 
 function Get-PortableNodeRoot {
-    return (Join-Path (Get-OpenClawDepsRoot) "portable-node")
+    return (Join-Path (Get-DaoCoreDepsRoot) "portable-node")
 }
 
 function Get-PortableNodeCommandPath {
@@ -392,10 +392,10 @@ function Install-Node {
     return $false
 }
 
-# Check for existing OpenClaw installation
-function Check-ExistingOpenClaw {
-    if (Get-OpenClawCommandPath) {
-        Write-Host "[*] Existing OpenClaw installation detected" -ForegroundColor Yellow
+# Check for existing DaoCore installation
+function Check-ExistingDaoCore {
+    if (Get-DaoCoreCommandPath) {
+        Write-Host "[*] Existing DaoCore installation detected" -ForegroundColor Yellow
         return $true
     }
     return $false
@@ -456,7 +456,7 @@ function Add-ToUserPath {
 }
 
 function Get-PortableGitRoot {
-    return (Join-Path (Get-OpenClawDepsRoot) "portable-git")
+    return (Join-Path (Get-DaoCoreDepsRoot) "portable-git")
 }
 
 function Get-PortableGitCommandPath {
@@ -609,14 +609,14 @@ function Ensure-Git {
     }
 
     Write-Host ""
-    Write-Host "Error: Git is required to install OpenClaw." -ForegroundColor Red
+    Write-Host "Error: Git is required to install DaoCore." -ForegroundColor Red
     Write-Host "Auto-bootstrap of user-local Git did not succeed." -ForegroundColor Yellow
     Write-Host "Install Git for Windows manually, then re-run this installer:" -ForegroundColor Yellow
     Write-Host "  https://git-scm.com/download/win" -ForegroundColor Cyan
     return $false
 }
 
-function Get-OpenClawCommandPath {
+function Get-DaoCoreCommandPath {
     $openclawCmd = Get-Command openclaw.cmd -ErrorAction SilentlyContinue
     if ($openclawCmd -and $openclawCmd.Source) {
         return $openclawCmd.Source
@@ -630,13 +630,13 @@ function Get-OpenClawCommandPath {
     return $null
 }
 
-function Invoke-OpenClawCommand {
+function Invoke-DaoCoreCommand {
     param(
         [Parameter(ValueFromRemainingArguments = $true)]
         [string[]]$Arguments
     )
 
-    $commandPath = Get-OpenClawCommandPath
+    $commandPath = Get-DaoCoreCommandPath
     if (-not $commandPath) {
         throw "openclaw command not found on PATH."
     }
@@ -644,13 +644,13 @@ function Invoke-OpenClawCommand {
     & $commandPath @Arguments
 }
 
-function Invoke-InteractiveOpenClawCommand {
+function Invoke-InteractiveDaoCoreCommand {
     param(
         [Parameter(ValueFromRemainingArguments = $true)]
         [string[]]$Arguments
     )
 
-    $commandPath = Get-OpenClawCommandPath
+    $commandPath = Get-DaoCoreCommandPath
     if (-not $commandPath) {
         throw "openclaw command not found on PATH."
     }
@@ -754,8 +754,8 @@ function Get-NpmGlobalBinCandidates {
     return $candidates | Where-Object { -not [string]::IsNullOrWhiteSpace($_) } | Select-Object -Unique
 }
 
-function Ensure-OpenClawOnPath {
-    if (Get-OpenClawCommandPath) {
+function Ensure-DaoCoreOnPath {
+    if (Get-DaoCoreCommandPath) {
         return $true
     }
 
@@ -898,7 +898,7 @@ function Ensure-Pnpm {
     Write-Host "[OK] pnpm installed" -ForegroundColor Green
 }
 
-# Install OpenClaw
+# Install DaoCore
 function Resolve-LocalNpmPackagePath {
     param([string]$PackagePath)
 
@@ -945,7 +945,7 @@ function Resolve-LocalNpmPackageInstallSpec {
     }
 }
 
-function Resolve-NpmOpenClawInstallSpec {
+function Resolve-NpmDaoCoreInstallSpec {
     param(
         [string]$PackageName,
         [string]$RequestedTag
@@ -970,7 +970,7 @@ function Resolve-NpmOpenClawInstallSpec {
     return "$PackageName@$trimmedTag"
 }
 
-function Test-OpenClawSourcePackageInstallSpec {
+function Test-DaoCoreSourcePackageInstallSpec {
     param([string]$RequestedTag)
 
     if ([string]::IsNullOrWhiteSpace($RequestedTag)) {
@@ -1057,12 +1057,12 @@ function Test-NpmConfigRawKey {
     return $false
 }
 
-function Install-OpenClaw {
+function Install-DaoCore {
     if ([string]::IsNullOrWhiteSpace($Tag)) {
         $Tag = "latest"
     }
-    if (Test-OpenClawSourcePackageInstallSpec -RequestedTag $Tag) {
-        Write-Host "Error: npm installs do not support OpenClaw GitHub source targets like '$Tag'." -ForegroundColor Red
+    if (Test-DaoCoreSourcePackageInstallSpec -RequestedTag $Tag) {
+        Write-Host "Error: npm installs do not support DaoCore GitHub source targets like '$Tag'." -ForegroundColor Red
         Write-Host "Use -InstallMethod git -Tag main for the moving main checkout, or use latest, beta, an exact version, or a built .tgz package." -ForegroundColor Yellow
         return $false
     }
@@ -1075,8 +1075,8 @@ function Install-OpenClaw {
     if ($Tag -eq "beta" -or $Tag -match "^beta\.") {
         $packageName = "openclaw"
     }
-    $installSpec = Resolve-NpmOpenClawInstallSpec -PackageName $packageName -RequestedTag $Tag
-    Write-Host "[*] Installing OpenClaw ($installSpec)..." -ForegroundColor Yellow
+    $installSpec = Resolve-NpmDaoCoreInstallSpec -PackageName $packageName -RequestedTag $Tag
+    Write-Host "[*] Installing DaoCore ($installSpec)..." -ForegroundColor Yellow
     $freshnessArgs = @("--min-release-age=0")
     $minReleaseAge = (Invoke-NpmCommand -Arguments @("config", "get", "min-release-age", "--global") 2>$null)
     $minReleaseAgeStatus = $LASTEXITCODE
@@ -1129,12 +1129,12 @@ function Install-OpenClaw {
         $env:NPM_CONFIG_BEFORE = $prevBefore
         $env:NPM_CONFIG_MIN_RELEASE_AGE = $prevMinReleaseAge
     }
-    Write-Host "[OK] OpenClaw installed" -ForegroundColor Green
+    Write-Host "[OK] DaoCore installed" -ForegroundColor Green
     return $true
 }
 
-# Install OpenClaw from GitHub
-function Install-OpenClawFromGit {
+# Install DaoCore from GitHub
+function Install-DaoCoreFromGit {
     param(
         [string]$RepoDir,
         [switch]$SkipUpdate
@@ -1144,7 +1144,7 @@ function Install-OpenClawFromGit {
     }
 
     $repoUrl = "https://github.com/openclaw/openclaw.git"
-    Write-Host "[*] Installing OpenClaw from GitHub ($repoUrl)..." -ForegroundColor Yellow
+    Write-Host "[*] Installing DaoCore from GitHub ($repoUrl)..." -ForegroundColor Yellow
 
     if (-not (Test-Path $RepoDir)) {
         git clone $repoUrl $RepoDir
@@ -1237,7 +1237,7 @@ function Install-OpenClawFromGit {
 
     $entryPath = Join-Path $RepoDir "dist\\entry.js"
     if (-not (Test-Path $entryPath)) {
-        Write-Host "[!] OpenClaw build did not produce $entryPath" -ForegroundColor Red
+        Write-Host "[!] DaoCore build did not produce $entryPath" -ForegroundColor Red
         return $false
     }
 
@@ -1253,7 +1253,7 @@ function Install-OpenClawFromGit {
         Write-Host "[!] Added $binDir to user PATH (restart terminal if command not found)" -ForegroundColor Yellow
     }
 
-    Write-Host "[OK] OpenClaw wrapper installed to $cmdPath" -ForegroundColor Green
+    Write-Host "[OK] DaoCore wrapper installed to $cmdPath" -ForegroundColor Green
     Write-Host "[i] This checkout uses pnpm. For deps, run: pnpm install (avoid npm install in the repo)." -ForegroundColor Gray
     return $true
 }
@@ -1262,7 +1262,7 @@ function Install-OpenClawFromGit {
 function Run-Doctor {
     Write-Host "[*] Running doctor to migrate settings..." -ForegroundColor Yellow
     try {
-        Invoke-OpenClawCommand doctor --non-interactive
+        Invoke-DaoCoreCommand doctor --non-interactive
     } catch {
         # Ignore errors from doctor
     }
@@ -1271,7 +1271,7 @@ function Run-Doctor {
 
 function Test-GatewayServiceLoaded {
     try {
-        $statusJson = (Invoke-OpenClawCommand daemon status --json 2>$null)
+        $statusJson = (Invoke-DaoCoreCommand daemon status --json 2>$null)
         if ([string]::IsNullOrWhiteSpace($statusJson)) {
             return $false
         }
@@ -1286,7 +1286,7 @@ function Test-GatewayServiceLoaded {
 }
 
 function Refresh-GatewayServiceIfLoaded {
-    if (-not (Get-OpenClawCommandPath)) {
+    if (-not (Get-DaoCoreCommandPath)) {
         return
     }
     if (-not (Test-GatewayServiceLoaded)) {
@@ -1295,15 +1295,15 @@ function Refresh-GatewayServiceIfLoaded {
 
     Write-Host "[*] Refreshing loaded gateway service..." -ForegroundColor Yellow
     try {
-        Invoke-OpenClawCommand gateway install --force | Out-Null
+        Invoke-DaoCoreCommand gateway install --force | Out-Null
     } catch {
         Write-Host "[!] Gateway service refresh failed; continuing." -ForegroundColor Yellow
         return
     }
 
     try {
-        Invoke-OpenClawCommand gateway restart | Out-Null
-        Invoke-OpenClawCommand gateway status --json | Out-Null
+        Invoke-DaoCoreCommand gateway restart | Out-Null
+        Invoke-DaoCoreCommand gateway status --json | Out-Null
         Write-Host "[OK] Gateway service refreshed" -ForegroundColor Green
     } catch {
         Write-Host "[!] Gateway service restart failed; continuing." -ForegroundColor Yellow
@@ -1357,7 +1357,7 @@ function Main {
     }
 
     # Check for existing installation
-    $isUpgrade = Check-ExistingOpenClaw
+    $isUpgrade = Check-ExistingDaoCore
 
     # Step 1: Node.js
     if (-not (Check-Node)) {
@@ -1376,7 +1376,7 @@ function Main {
 
     $finalGitDir = $null
 
-    # Step 2: OpenClaw
+    # Step 2: DaoCore
     if ($InstallMethod -eq "git") {
         try {
             $npmCommand = Get-NpmCommandPath
@@ -1386,7 +1386,7 @@ function Main {
             }
         } catch { }
         $finalGitDir = $GitDir
-        $gitInstallResults = @(Install-OpenClawFromGit -RepoDir $GitDir -SkipUpdate:$NoGitUpdate)
+        $gitInstallResults = @(Install-DaoCoreFromGit -RepoDir $GitDir -SkipUpdate:$NoGitUpdate)
         if (-not (Test-BooleanSuccessResult -Results $gitInstallResults)) {
             return (Fail-Install)
         }
@@ -1396,14 +1396,14 @@ function Main {
             Remove-Item -Force $gitWrapper
             Write-Host "[OK] Removed git wrapper (switching to npm)" -ForegroundColor Green
         }
-        $npmInstallResults = @(Install-OpenClaw)
+        $npmInstallResults = @(Install-DaoCore)
         if (-not (Test-BooleanSuccessResult -Results $npmInstallResults)) {
             return (Fail-Install)
         }
     }
 
-    if (-not (Ensure-OpenClawOnPath)) {
-        Write-Host "Install completed, but OpenClaw is not on PATH yet." -ForegroundColor Yellow
+    if (-not (Ensure-DaoCoreOnPath)) {
+        Write-Host "Install completed, but DaoCore is not on PATH yet." -ForegroundColor Yellow
         Write-Host "Open a new terminal, then run: openclaw doctor" -ForegroundColor Cyan
         return
     }
@@ -1417,7 +1417,7 @@ function Main {
 
     $installedVersion = $null
     try {
-        $installedVersion = (Invoke-OpenClawCommand --version 2>$null).Trim()
+        $installedVersion = (Invoke-DaoCoreCommand --version 2>$null).Trim()
     } catch {
         $installedVersion = $null
     }
@@ -1434,9 +1434,9 @@ function Main {
 
     Write-Host ""
     if ($installedVersion) {
-        Write-Host "OpenClaw installed successfully ($installedVersion)!" -ForegroundColor Green
+        Write-Host "DaoCore installed successfully ($installedVersion)!" -ForegroundColor Green
     } else {
-        Write-Host "OpenClaw installed successfully!" -ForegroundColor Green
+        Write-Host "DaoCore installed successfully!" -ForegroundColor Green
     }
     Write-Host ""
     if ($isUpgrade) {
@@ -1499,7 +1499,7 @@ function Main {
         } else {
             Write-Host "Starting setup..." -ForegroundColor Cyan
             Write-Host ""
-            Invoke-InteractiveOpenClawCommand onboard
+            Invoke-InteractiveDaoCoreCommand onboard
         }
     }
 

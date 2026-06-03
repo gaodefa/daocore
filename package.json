@@ -1,20 +1,21 @@
 {
-  "name": "openclaw",
+  "name": "daocore",
   "version": "2026.5.30",
   "description": "Multi-channel AI gateway with extensible messaging integrations",
   "keywords": [],
-  "homepage": "https://github.com/openclaw/openclaw#readme",
+  "homepage": "https://github.com/daocore/daocore#readme",
   "bugs": {
-    "url": "https://github.com/openclaw/openclaw/issues"
+    "url": "https://github.com/daocore/daocore/issues"
   },
   "license": "MIT",
   "author": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openclaw/openclaw.git"
+    "url": "git+https://github.com/daocore/daocore.git"
   },
   "bin": {
-    "openclaw": "openclaw.mjs"
+    "openclaw": "openclaw.mjs",
+    "daocore": "openclaw.mjs"
   },
   "directories": {
     "doc": "docs",

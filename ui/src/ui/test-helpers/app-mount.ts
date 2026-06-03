@@ -47,7 +47,7 @@ const mountedApps = new Set<OpenClawApp>();
 function collectMountedApps() {
   return new Set<OpenClawApp>([
     ...mountedApps,
-    ...document.querySelectorAll<OpenClawApp>("openclaw-app"),
+    ...document.querySelectorAll<OpenClawApp>("daocore-app"),
   ]);
 }
 
@@ -102,7 +102,7 @@ async function cleanupMountedApps() {
 
 export function mountApp(pathname: string) {
   window.history.replaceState({}, "", pathname);
-  const app = document.createElement("openclaw-app") as OpenClawApp;
+  const app = document.createElement("daocore-app") as OpenClawApp;
   mountedApps.add(app);
   document.body.append(app);
   app.connected = true;

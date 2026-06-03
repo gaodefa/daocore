@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# OpenClaw CLI installer (non-interactive, no onboarding)
+# DaoCore CLI installer (non-interactive, no onboarding)
 # Usage: curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- [--json] [--prefix <path>] [--version <ver>] [--node-version <ver>] [--onboard]
 
 ensure_home_env() {
@@ -77,7 +77,7 @@ Usage: install-cli.sh [options]
   --npm                               Shortcut for --install-method npm
   --git, --github                     Shortcut for --install-method git
   --git-dir, --dir <path>             Checkout directory (default: ~/openclaw, or \$OPENCLAW_HOME/openclaw)
-  --version <ver>                     OpenClaw version (default: latest)
+  --version <ver>                     DaoCore version (default: latest)
   --node-version <ver>                Node version (default: 22.22.0)
   --onboard                           Run "openclaw onboard" after install
   --no-onboard                        Skip onboarding (default)
@@ -953,7 +953,7 @@ npm_config_has_raw_key() {
 install_openclaw() {
   local requested="${OPENCLAW_VERSION:-latest}"
   if is_openclaw_source_package_install_spec "$requested"; then
-    fail "npm installs do not support OpenClaw GitHub source targets like '${requested}'. Use --install-method git --version main, latest, beta, an exact version, or a built .tgz package."
+    fail "npm installs do not support DaoCore GitHub source targets like '${requested}'. Use --install-method git --version main, latest, beta, an exact version, or a built .tgz package."
   fi
   local freshness_flag="--min-release-age=0"
   local min_release_age=""
@@ -974,7 +974,7 @@ install_openclaw() {
     "$freshness_flag"
   )
   emit_json "{\"event\":\"step\",\"name\":\"openclaw\",\"status\":\"start\",\"version\":\"${requested}\"}"
-  log "Installing OpenClaw (${requested})..."
+  log "Installing DaoCore (${requested})..."
   if [[ "$SET_NPM_PREFIX" -eq 1 ]]; then
     fix_npm_prefix_if_needed
   fi
@@ -1194,10 +1194,10 @@ main() {
   installed_version="$(resolve_openclaw_version)"
   if [[ -n "$installed_version" ]]; then
     emit_json "{\"event\":\"done\",\"ok\":true,\"version\":\"${installed_version//\"/\\\"}\"}"
-    log "OpenClaw installed (${installed_version})."
+    log "DaoCore installed (${installed_version})."
   else
     emit_json "{\"event\":\"done\",\"ok\":true}"
-    log "OpenClaw installed."
+    log "DaoCore installed."
   fi
 
   if [[ "$RUN_ONBOARD" -eq 1 ]]; then

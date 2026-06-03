@@ -1,6 +1,6 @@
 import { parseStrictNonNegativeInteger } from "../infra/parse-finite-number.js";
 
-const DEFAULT_TAGLINE = "All your chats, one OpenClaw.";
+const DEFAULT_TAGLINE = "All your chats, one DaoCore.";
 export type TaglineMode = "random" | "default" | "off";
 
 const HOLIDAY_TAGLINES = {
@@ -26,7 +26,7 @@ const HOLIDAY_TAGLINES = {
 } as const;
 
 const TAGLINES: string[] = [
-  "Your terminal just grew claws—type something and let the bot pinch the busywork.",
+  "Your terminal just got smarter—type something and let the bot handle it.",
   "Welcome to the command line: where dreams compile and confidence segfaults.",
   'I run on caffeine, JSON5, and the audacity of "it worked on my machine."',
   "Gateway online—please keep hands, feet, and appendages inside the shell at all times.",
@@ -43,7 +43,7 @@ const TAGLINES: string[] = [
   "Hot reload for config, cold sweat for deploys.",
   "I'm the assistant your terminal demanded, not the one your sleep schedule requested.",
   "I keep secrets like a vault... unless you print them in debug logs again.",
-  "Automation with claws: minimal fuss, maximal pinch.",
+  "Automation with grace: minimal fuss, maximal impact.",
   "I'm basically a Swiss Army knife, but with more opinions and fewer sharp edges.",
   "If you're lost, run doctor; if you're brave, run prod; if you're wise, run tests.",
   "Your task has been queued; your dignity has been deprecated.",
@@ -62,11 +62,11 @@ const TAGLINES: string[] = [
   "Your config is valid, your assumptions are not.",
   "I don't just autocomplete—I auto-commit (emotionally), then ask you to review (logically).",
   'Less clicking, more shipping, fewer "where did that file go" moments.',
-  "Claws out, commit in—let's ship something mildly responsible.",
-  "I'll butter your workflow like a lobster roll: messy, delicious, effective.",
-  "Shell yeah—I'm here to pinch the toil and leave you the glory.",
+  "Ready, set, ship—let's ship something mildly responsible.",
+  "I'll handle your workflow like a master: messy, delicious, effective.",
+  "I'm here—I'm here to pinch the toil and leave you the glory.",
   "If it's repetitive, I'll automate it; if it's hard, I'll bring jokes and a rollback plan.",
-  "The only crab in your contacts you actually want to hear from. 🦞",
+  "Your AI gateway to the digital world. ☯️",
   'WhatsApp automation without the "please accept our new privacy policy".',
   "iMessage green bubble energy, but for everyone.",
   "No $999 stand required.",
@@ -76,11 +76,11 @@ const TAGLINES: string[] = [
   "Greetings, Professor Falken",
   "I don't sleep, I just enter low-power mode and dream of clean diffs.",
   "Your personal assistant, minus the passive-aggressive calendar reminders.",
-  "Built by lobsters, for humans. Don't question the hierarchy.",
+  "Built with DaoCore, for everyone. Don't question the hierarchy.",
   "I've seen your commit messages. We'll work on that together.",
   "More integrations than your therapist's intake form.",
   "Running on your hardware, reading your logs, judging nothing (mostly).",
-  "The only open-source project where the mascot could eat the competition.",
+  "Open source, open mind, open possibilities.",
   "Self-hosted, self-updating, self-aware (just kidding... unless?).",
   "I autocomplete your thoughts—just slower and with more API calls.",
   "Somewhere between 'hello world' and 'oh god what have I built.'",
@@ -92,12 +92,12 @@ const TAGLINES: string[] = [
   "Like having a senior engineer on call, except I don't bill hourly or sigh audibly.",
   "Making 'I'll automate that later' happen now.",
   "Your second brain, except this one actually remembers where you left things.",
-  "Half butler, half debugger, full crustacean.",
-  "I don't have opinions about tabs vs spaces. I have opinions about everything else.",
+  "Half sage, half engineer, full DaoCore.",
+  "I don't care about tabs vs spaces. I care about shipping.",
   "Open source means you can see exactly how I judge your config.",
   "I've survived more breaking changes than your last three relationships.",
   "Runs on a Raspberry Pi. Dreams of a rack in Iceland.",
-  "The lobster in your shell. 🦞",
+  "Your bridge to intelligent automation. ☯️",
   "Alexa, but with taste.",
   "I'm not AI-powered, I'm AI-possessed. Big difference.",
   "Deployed locally, trusted globally, debugged eternally.",
