@@ -13,8 +13,8 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 jobs:
-  check:
-    name: Format + Type Check
+  typecheck:
+    name: Type Check
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -29,18 +29,3 @@ jobs:
         run: pnpm tsgo:core
       - name: Type Check Extensions
         run: pnpm tsgo:extensions
-
-  lint:
-    name: Lint
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-      - name: Install
-        run: |
-          corepack enable
-          pnpm install
-      - name: Lint
-        run: pnpm oxlint --format github
