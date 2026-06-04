@@ -2,6 +2,13 @@
 
 Docs: https://docs.openclaw.ai
 
+## 2026.6.4
+
+### Changes
+
+- Initial daocore fork publish.
+
+
 ## 2026.6.04
 
 ### Changes
