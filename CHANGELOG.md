@@ -2,6 +2,24 @@
 
 Docs: https://docs.openclaw.ai
 
+## 2026.6.04
+
+### Changes
+
+- Initial daocore fork publish.
+
+
+## 2026.5.103
+
+### Changes
+
+- Rename npm scope to @jiangnandahuzi/daocore for fork publish.
+
+### Fixes
+
+- Fix npm publish workflow scope and CHANGELOG validation.
+
+
 ## 2026.5.30
 
 ### Highlights
