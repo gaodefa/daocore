@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DaoCore - AI Gateway</title>
+  <meta name="description" content="DaoCore - 多通道 AI 网关，连接 Discord、Telegram、微信等平台到 AI 编码助手">
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --fg: #e0e0e0;
+      --accent: #f59e0b;
+      --accent2: #fbbf24;
+      --muted: #888;
+      --border: #222;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 64px 24px; }
+    header { text-align: center; padding: 80px 0 48px; }
+    .logo { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.03em; }
+    .logo .accent { color: var(--accent); }
+    .logo .dot { color: var(--accent2); }
+    .subtitle { font-size: 1.15rem; color: var(--muted); margin-top: 16px; max-width: 540px; margin-inline: auto; }
+    .tagline { font-size: 0.9rem; color: #555; margin-top: 8px; }
+    .actions { display: flex; gap: 12px; justify-content: center; margin-top: 32px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px; border-radius: 8px; font-size: 0.95rem;
+      font-weight: 600; text-decoration: none; transition: all .15s;
+    }
+    .btn-primary { background: var(--accent); color: #000; }
+    .btn-primary:hover { background: var(--accent2); }
+    .btn-outline { border: 1px solid var(--border); color: var(--fg); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    section { padding: 64px 0; }
+    section h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 24px; }
+    section h2 .accent { color: var(--accent); }
+    .features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .feature {
+      border: 1px solid var(--border); border-radius: 12px; padding: 24px;
+      transition: border-color .15s;
+    }
+    .feature:hover { border-color: var(--accent); }
+    .feature h3 { font-size: 1rem; margin-bottom: 8px; }
+    .feature p { font-size: 0.875rem; color: var(--muted); }
+    .code-block {
+      background: #1a1a1a; border: 1px solid var(--border); border-radius: 8px;
+      padding: 16px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.825rem;
+      overflow-x: auto;
+    }
+    .code-block .comment { color: #6a9955; }
+    footer { text-align: center; padding: 48px 0; color: var(--muted); font-size: 0.85rem; }
+    footer a { color: var(--accent); text-decoration: none; }
+    @media (max-width: 600px) {
+      .logo { font-size: 2.5rem; }
+      .features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">Dao<span class="accent">Core</span><span class="dot">.</span></div>
+      <p class="subtitle">自托管 AI 网关 · 连接任何消息平台<br>基于 OpenClaw 深度定制优化</p>
+      <p class="tagline">@gaodefa/daocore</p>
+      <div class="actions">
+        <a href="https://github.com/gaodefa/daocore" class="btn btn-primary">GitHub</a>
+        <a href="https://www.npmjs.com/package/@gaodefa/daocore" class="btn btn-outline">NPM</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>核心 <span class="accent">特性</span></h2>
+      <div class="features">
+        <div class="feature">
+          <h3>🔌 多通道集成</h3>
+          <p>Discord · Telegram · WhatsApp · Slack · Signal · 微信 · Google Chat · 更多</p>
+        </div>
+        <div class="feature">
+          <h3>🤖 AI 编码代理</h3>
+          <p>在任何平台向 AI 编码助手发送消息，随时随地编码</p>
+        </div>
+        <div class="feature">
+          <h3>🔧 自托管部署</h3>
+          <p>一台机器运行网关进程，完整掌控数据和隐私</p>
+        </div>
+        <div class="feature">
+          <h3>📦 插件生态</h3>
+          <p>可扩展的插件系统，轻松集成更多服务和工具</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>快速 <span class="accent">开始</span></h2>
+      <div class="code-block">
+        <span class="comment"># 安装</span><br>
+        npm install -g @gaodefa/daocore<br><br>
+        <span class="comment"># 启动</span><br>
+        daocore gateway start
+      </div>
+    </section>
+
+    <footer>
+      <p><a href="https://github.com/gaodefa/daocore">DaoCore</a> · 基于 OpenClaw 二次开发</p>
+      <p style="margin-top:8px;font-size:0.8rem">© 2026 Daocore</p>
+    </footer>
+  </div>
+</body>
+</html>
