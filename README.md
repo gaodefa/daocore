@@ -1,9 +1,9 @@
-# 🦞 OpenClaw — Personal AI Assistant
+# 🦞 DaoCore — Personal AI Assistant
 
 <p align="center">
     <picture>
         <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-logo-text-dark.svg">
-        <img src="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-logo-text.svg" alt="OpenClaw" width="500">
+        <img src="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-logo-text.svg" alt="DaoCore" width="500">
     </picture>
 </p>
 
@@ -18,7 +18,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="MIT License"></a>
 </p>
 
-**OpenClaw** is a _personal AI assistant_ you run on your own devices.
+**DaoCore** is a _personal AI assistant_ you run on your own devices.
 It answers you on the channels you already use. It can speak and listen on macOS/iOS/Android, and can render a live Canvas you control. The Gateway is just the control plane — the product is the assistant.
 
 If you want a personal, single-user assistant that feels local, fast, and always-on, this is it.
@@ -30,7 +30,7 @@ Supported channels include: WhatsApp, Telegram, Slack, Discord, Google Chat, Sig
 New install? Start here: [Getting started](https://docs.openclaw.ai/start/getting-started)
 
 Preferred setup: run `openclaw onboard` in your terminal.
-OpenClaw Onboard guides you step by step through setting up the gateway, workspace, channels, and skills. It is the recommended CLI setup path and works on **macOS, Linux, and Windows (via WSL2; strongly recommended)**.
+DaoCore Onboard guides you step by step through setting up the gateway, workspace, channels, and skills. It is the recommended CLI setup path and works on **macOS, Linux, and Windows (via WSL2; strongly recommended)**.
 Works with npm, pnpm, or bun.
 
 ## Sponsors
@@ -105,7 +105,7 @@ npm install -g openclaw@latest
 openclaw onboard --install-daemon
 ```
 
-OpenClaw Onboard installs the Gateway daemon (launchd/systemd user service) so it stays running.
+DaoCore Onboard installs the Gateway daemon (launchd/systemd user service) so it stays running.
 
 ## Quick start (TL;DR)
 
@@ -131,7 +131,7 @@ Send a test message or ask the assistant after either startup mode is running:
 
 ```bash
 # Send a message
-openclaw message send --target +1234567890 --message "Hello from OpenClaw"
+openclaw message send --target +1234567890 --message "Hello from DaoCore"
 
 # Talk to the assistant (optionally deliver back to any connected channel: WhatsApp/Telegram/Slack/Discord/Google Chat/Signal/iMessage/IRC/Microsoft Teams/Matrix/Feishu/LINE/Mattermost/Nextcloud Talk/Nostr/Synology Chat/Tlon/Twitch/Zalo/Zalo Personal/WeChat/QQ/WebChat)
 openclaw agent --message "Ship checklist" --thinking high
@@ -143,7 +143,7 @@ Models config + CLI: [Models](https://docs.openclaw.ai/concepts/models). Auth pr
 
 ## Security defaults (DM access)
 
-OpenClaw connects to real messaging surfaces. Treat inbound DMs as **untrusted input**.
+DaoCore connects to real messaging surfaces. Treat inbound DMs as **untrusted input**.
 
 Full security guide: [Security](https://docs.openclaw.ai/gateway/security).
 Before remote exposure, use the [Gateway exposure runbook](https://docs.openclaw.ai/gateway/security/exposure-runbook).
@@ -198,7 +198,7 @@ The Gateway alone delivers a great experience. All apps are optional and add ext
 
 If you plan to build/run companion apps, follow the platform runbooks below.
 
-### macOS (OpenClaw.app) (optional)
+### macOS (DaoCore.app) (optional)
 
 - Menu bar control for the Gateway and health.
 - Voice Wake + push-to-talk overlay.
@@ -236,7 +236,7 @@ cd openclaw
 
 pnpm install
 
-# First run only (or after resetting local OpenClaw config/workspace)
+# First run only (or after resetting local DaoCore config/workspace)
 pnpm openclaw setup
 
 # Optional: prebuild Control UI before first startup
@@ -292,7 +292,7 @@ Minimal `~/.openclaw/openclaw.json` (model + defaults):
 
 ## Molty
 
-OpenClaw was built for **Molty**, a space lobster AI assistant. 🦞
+DaoCore was built for **Molty**, a space lobster AI assistant. 🦞
 by Peter Steinberger and the community.
 
 - [openclaw.ai](https://openclaw.ai)
@@ -368,7 +368,7 @@ Thanks to all clawtributors:
 [![scald](https://avatars.githubusercontent.com/u/1215913?v=4&s=48)](https://github.com/scald) [![Serhii](https://avatars.githubusercontent.com/u/151471784?v=4&s=48)](https://github.com/kashevk0) [![a](https://avatars.githubusercontent.com/u/33371662?v=4&s=48)](https://github.com/Yuandiaodiaodiao) [![Doğu Abaris](https://avatars.githubusercontent.com/u/135986694?v=4&s=48)](https://github.com/doguabaris) [![ysqander](https://avatars.githubusercontent.com/u/80843820?v=4&s=48)](https://github.com/ysqander) [![andranik-sahakyan](https://avatars.githubusercontent.com/u/8908029?v=4&s=48)](https://github.com/andranik-sahakyan) [![Wangnov](https://avatars.githubusercontent.com/u/48670012?v=4&s=48)](https://github.com/Wangnov) [![Austin](https://avatars.githubusercontent.com/u/112558420?v=4&s=48)](https://github.com/rixau) [![lisitan](https://avatars.githubusercontent.com/u/50470712?v=4&s=48)](https://github.com/lisitan) [![Rishi Vhavle](https://avatars.githubusercontent.com/u/134706404?v=4&s=48)](https://github.com/kaizen403)
 [![Frank Harris](https://avatars.githubusercontent.com/u/183158?v=4&s=48)](https://github.com/hirefrank) [![Kenny Lee](https://avatars.githubusercontent.com/u/1432489?v=4&s=48)](https://github.com/kennyklee) [![Alice Losasso](https://avatars.githubusercontent.com/u/104875499?v=4&s=48)](https://github.com/dddabtc) [![edincampara](https://avatars.githubusercontent.com/u/142477787?v=4&s=48)](https://github.com/edincampara) [![Felix Hellström](https://avatars.githubusercontent.com/u/30758862?v=4&s=48)](https://github.com/fellanH) [![Varun Chopra](https://avatars.githubusercontent.com/u/113368492?v=4&s=48)](https://github.com/VarunChopra11) [![wangai-studio](https://avatars.githubusercontent.com/u/256938352?v=4&s=48)](https://github.com/wangai-studio) [![sleontenko](https://avatars.githubusercontent.com/u/7135949?v=4&s=48)](https://github.com/sleontenko) [![Yassine Amjad](https://avatars.githubusercontent.com/u/59234686?v=4&s=48)](https://github.com/yassine20011) [![Anton Eicher](https://avatars.githubusercontent.com/u/54324760?v=4&s=48)](https://github.com/ant1eicher)
 [![Drake Thomsen](https://avatars.githubusercontent.com/u/120344051?v=4&s=48)](https://github.com/ThomsenDrake) [![Hinata Kaga (samon)](https://avatars.githubusercontent.com/u/61647657?v=4&s=48)](https://github.com/kakuteki) [![andreabadesso](https://avatars.githubusercontent.com/u/3586068?v=4&s=48)](https://github.com/andreabadesso) [![chenxin-yan](https://avatars.githubusercontent.com/u/71162231?v=4&s=48)](https://github.com/chenxin-yan) [![cordx56](https://avatars.githubusercontent.com/u/23298744?v=4&s=48)](https://github.com/cordx56) [![dvrshil](https://avatars.githubusercontent.com/u/81693876?v=4&s=48)](https://github.com/dvrshil) [![MarvinCui](https://avatars.githubusercontent.com/u/130876763?v=4&s=48)](https://github.com/MarvinCui) [![Yeom-JinHo](https://avatars.githubusercontent.com/u/81306489?v=4&s=48)](https://github.com/Yeom-JinHo) [![Jeremy Mumford](https://avatars.githubusercontent.com/u/36290330?v=4&s=48)](https://github.com/17jmumford) [![Charlie Niño](https://avatars.githubusercontent.com/u/2346724?v=4&s=48)](https://github.com/KnHack)
-[![Sharoon Sharif](https://avatars.githubusercontent.com/u/150296639?v=4&s=48)](https://github.com/SharoonSharif) [![Oren](https://avatars.githubusercontent.com/u/168856?v=4&s=48)](https://github.com/orenyomtov) [![MattQ](https://avatars.githubusercontent.com/u/115874885?v=4&s=48)](https://github.com/mattqdev) [![Parker Todd Brooks](https://avatars.githubusercontent.com/u/585456?v=4&s=48)](https://github.com/parkertoddbrooks) [![Yufeng He](https://avatars.githubusercontent.com/u/40085740?v=4&s=48)](https://github.com/he-yufeng) [![Milofax](https://avatars.githubusercontent.com/u/2537423?v=4&s=48)](https://github.com/Milofax) [![Steve (OpenClaw)](https://avatars.githubusercontent.com/u/261149299?v=4&s=48)](https://github.com/stevebot-alive) [![zhoulf1006](https://avatars.githubusercontent.com/u/35586967?v=4&s=48)](https://github.com/zhoulf1006) [![Jonatan](https://avatars.githubusercontent.com/u/19454127?v=4&s=48)](https://github.com/jrrcdev) [![Sebastian B Otaegui](https://avatars.githubusercontent.com/u/91633?v=4&s=48)](https://github.com/feniix)
+[![Sharoon Sharif](https://avatars.githubusercontent.com/u/150296639?v=4&s=48)](https://github.com/SharoonSharif) [![Oren](https://avatars.githubusercontent.com/u/168856?v=4&s=48)](https://github.com/orenyomtov) [![MattQ](https://avatars.githubusercontent.com/u/115874885?v=4&s=48)](https://github.com/mattqdev) [![Parker Todd Brooks](https://avatars.githubusercontent.com/u/585456?v=4&s=48)](https://github.com/parkertoddbrooks) [![Yufeng He](https://avatars.githubusercontent.com/u/40085740?v=4&s=48)](https://github.com/he-yufeng) [![Milofax](https://avatars.githubusercontent.com/u/2537423?v=4&s=48)](https://github.com/Milofax) [![Steve (DaoCore)](https://avatars.githubusercontent.com/u/261149299?v=4&s=48)](https://github.com/stevebot-alive) [![zhoulf1006](https://avatars.githubusercontent.com/u/35586967?v=4&s=48)](https://github.com/zhoulf1006) [![Jonatan](https://avatars.githubusercontent.com/u/19454127?v=4&s=48)](https://github.com/jrrcdev) [![Sebastian B Otaegui](https://avatars.githubusercontent.com/u/91633?v=4&s=48)](https://github.com/feniix)
 [![Matthew](https://avatars.githubusercontent.com/u/76985631?v=4&s=48)](https://github.com/ZetiMente) [![ABFS Tech](https://avatars.githubusercontent.com/u/82096803?v=4&s=48)](https://github.com/QuantDeveloperUSA) [![alexstyl](https://avatars.githubusercontent.com/u/1665273?v=4&s=48)](https://github.com/alexstyl) [![Ethan Palm](https://avatars.githubusercontent.com/u/56270045?v=4&s=48)](https://github.com/ethanpalm) [![Qkal](https://avatars.githubusercontent.com/u/77361240?v=4&s=48)](https://github.com/qkal) [![cygaar](https://avatars.githubusercontent.com/u/97691933?v=4&s=48)](https://github.com/cygaar) [![Umut CAN](https://avatars.githubusercontent.com/u/78921017?v=4&s=48)](https://github.com/U-C4N) [![Jakob](https://avatars.githubusercontent.com/u/38699060?v=4&s=48)](https://github.com/jakobdylanc) [![antons](https://avatars.githubusercontent.com/u/129705?v=4&s=48)](https://github.com/antons) [![austinm911](https://avatars.githubusercontent.com/u/31991302?v=4&s=48)](https://github.com/austinm911)
 [![mahmoudashraf93](https://avatars.githubusercontent.com/u/9130129?v=4&s=48)](https://github.com/mahmoudashraf93) [![philipp-spiess](https://avatars.githubusercontent.com/u/458591?v=4&s=48)](https://github.com/philipp-spiess) [![pkrmf](https://avatars.githubusercontent.com/u/1714267?v=4&s=48)](https://github.com/pkrmf) [![joshrad-dev](https://avatars.githubusercontent.com/u/62785552?v=4&s=48)](https://github.com/joshrad-dev) [![factnest365-ops](https://avatars.githubusercontent.com/u/236534360?v=4&s=48)](https://github.com/factnest365-ops) [![yingchunbai](https://avatars.githubusercontent.com/u/33477283?v=4&s=48)](https://github.com/yingchunbai) [![AJ (@techfren)](https://avatars.githubusercontent.com/u/8023513?v=4&s=48)](https://github.com/aj47) [![Marchel Fahrezi](https://avatars.githubusercontent.com/u/53804949?v=4&s=48)](https://github.com/Alg0rix) [![futhgar](https://avatars.githubusercontent.com/u/51002668?v=4&s=48)](https://github.com/futhgar) [![Zhang](https://avatars.githubusercontent.com/u/56248212?v=4&s=48)](https://github.com/YonganZhang)
 [![Rémi](https://avatars.githubusercontent.com/u/1299873?v=4&s=48)](https://github.com/remusao) [![Dan Ballance](https://avatars.githubusercontent.com/u/13839912?v=4&s=48)](https://github.com/danballance) [![Eric Su](https://avatars.githubusercontent.com/u/60202455?v=4&s=48)](https://github.com/GHesericsu) [![Kimitaka Watanabe](https://avatars.githubusercontent.com/u/167225?v=4&s=48)](https://github.com/kimitaka) [![Justin Ling](https://avatars.githubusercontent.com/u/2521993?v=4&s=48)](https://github.com/itsjling) [![Raymond Berger](https://avatars.githubusercontent.com/u/921217?v=4&s=48)](https://github.com/RayBB) [![lutr0](https://avatars.githubusercontent.com/u/76906369?v=4&s=48)](https://github.com/lutr0) [![claude](https://avatars.githubusercontent.com/u/81847?v=4&s=48)](https://github.com/claude) [![AngryBird](https://avatars.githubusercontent.com/u/48046333?v=4&s=48)](https://github.com/angrybirddd) [![Fabian Williams](https://avatars.githubusercontent.com/u/92543063?v=4&s=48)](https://github.com/fabianwilliams)

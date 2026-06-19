@@ -105,7 +105,7 @@ export function resolveNodeWindowsTaskName(): string {
 export function formatNodeServiceDescription(params?: { version?: string }): string {
   const version = params?.version?.trim();
   if (!version) {
-    return "OpenClaw Node Host";
+    return "DaoCore Node Host";
   }
-  return `OpenClaw Node Host (v${version})`;
+  return `DaoCore Node Host (v${version})`;
 }

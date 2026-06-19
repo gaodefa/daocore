@@ -107,13 +107,7 @@ export function formatCliBannerLine(version: string, options: BannerOptions = {}
   return `${line1}\n${line2}`;
 }
 
-const LOBSTER_ASCII_BODY = [
-  "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄",
-  "██░▄▄▄░██░▄▄░██░▄▄▄██░▀██░██░▄▄▀██░████░▄▄▀██░███░██",
-  "██░███░██░▀▀░██░▄▄▄██░█░█░██░█████░████░▀▀░██░█░█░██",
-  "██░▀▀▀░██░█████░▀▀▀██░██▄░██░▀▀▄██░▀▀░█░██░██▄▀▄▀▄██",
-  "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀",
-];
+const LOBSTER_ASCII_BODY: string[] = [];
 
 function centerText(text: string, width: number): string {
   const pad = Math.max(0, width - visibleWidth(text));
@@ -123,10 +117,11 @@ function centerText(text: string, width: number): string {
 }
 
 function formatCliBannerArtLines(options: BannerOptions): string[] {
-  const width = visibleWidth(LOBSTER_ASCII_BODY[0] ?? "");
+  const width = 52;
   const emojiOptions = resolveEmojiOptions(options);
   const title = supportsDecorativeEmoji(emojiOptions) ? "☯️ DAOCORE ☯️" : "DAOCORE";
-  return [...LOBSTER_ASCII_BODY, centerText(title, width), " "];
+  const border = "=".repeat(width);
+  return [border, centerText(title, width), "", " "];
 }
 
 export function formatCliBannerArt(options: BannerOptions = {}): string {
@@ -152,17 +147,7 @@ export function formatCliBannerArt(options: BannerOptions = {}): string {
   const emojiOptions = resolveEmojiOptions(options);
   const icon = decorativeEmoji("☯️", emojiOptions);
   const colored = lines.map((line) => {
-    if (line.includes("OPENCLAW")) {
-      if (!icon) {
-        return theme.info(centerText("OPENCLAW", visibleWidth(line)));
-      }
-      return (
-        theme.muted("              ") +
-        theme.accent(icon) +
-        theme.info(" OPENCLAW ") +
-        theme.accent(icon)
-      );
-    }
+    // DAOCORE title is already centered in formatCliBannerArtLines
     return splitGraphemes(line).map(colorChar).join("");
   });
 
